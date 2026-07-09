@@ -7,7 +7,7 @@ from pathlib import Path
 def merge_listings():
     data_dir = Path('data')
     
-    sources = ['subo', 'sveafastigheter']
+    sources = ['subo', 'sveafastigheter', 'neobo']
     all_listings = []
     
     for source in sources:

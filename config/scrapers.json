@@ -9,6 +9,11 @@
       "name": "sveafastigheter",
       "url": "https://sveafastigheter.se/se-alla-lediga-lagenheter-for-uthyrning?kommun=Sundsvall",
       "type": "wordpress"
+    },
+    {
+      "name": "neobo",
+      "url": "https://www.neobo.se/sv/ledigt/lagenheter/municipality/Sundsvall/",
+      "type": "wordpress"
     }
   ],
   "schedule": "0 */6 * * *"

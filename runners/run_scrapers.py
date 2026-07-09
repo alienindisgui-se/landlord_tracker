@@ -18,7 +18,7 @@ def main():
     print("Starting landlord tracker scraper pipeline...")
     
     # Run all scrapers
-    scrapers = ['subo_scraper', 'sveafastigheter_scraper']
+    scrapers = ['subo_scraper', 'sveafastigheter_scraper', 'neobo_scraper']
     for scraper_name in scrapers:
         try:
             print(f"\nRunning {scraper_name}...")

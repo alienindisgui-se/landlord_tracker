@@ -1,0 +1,15 @@
+{
+  "targets": [
+    {
+      "name": "subo",
+      "url": "https://www.subo.se/lediga-lagenheter/",
+      "type": "wordpress"
+    },
+    {
+      "name": "sveafastigheter",
+      "url": "https://sveafastigheter.se/se-alla-lediga-lagenheter-for-uthyrning?kommun=Sundsvall",
+      "type": "wordpress"
+    }
+  ],
+  "schedule": "0 */6 * * *"
+}

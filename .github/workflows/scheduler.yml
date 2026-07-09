@@ -1,0 +1,29 @@
+name: landlord-tracker-scraper
+
+on:
+  schedule: "0 */6 * * *"
+
+job:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: pip install requests beautifulsoup4
+    - name: Run scraper pipeline
+      run: python runners/run_scrapers.py
+      
+    - name: Commit and push to data branch
+      run: |
+        cd data
+        git config --local user.email "action@v3.com"
+        git config --local user.name "GitHub Action"
+        git init
+        git add .
+        git commit -m "Update listings from $(date +'%Y-%m-%d %H:%M:%S')"
+        git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+        git push origin HEAD:data --force

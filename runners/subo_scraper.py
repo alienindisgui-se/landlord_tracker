@@ -16,6 +16,7 @@ def scrape():
     url = 'https://www.subo.se/lediga-lagenheter/'
     headers = {'User-Agent': 'Mozilla/5.0'}
     response = requests.get(url, headers=headers)
+    response.encoding = 'utf-8'
     soup = BeautifulSoup(response.text, 'html.parser')
     
     # Find all elementor columns with lagenhet URLs

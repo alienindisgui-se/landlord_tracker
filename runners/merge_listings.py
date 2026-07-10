@@ -13,7 +13,7 @@ def merge_listings():
     for source in sources:
         src_file = data_dir / f'{source}_listings.json'
         if src_file.exists():
-            with open(src_file, 'r') as f:
+            with open(src_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 all_listings.extend(data.get('properties', []))
     

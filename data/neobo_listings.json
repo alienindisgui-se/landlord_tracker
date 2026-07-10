@@ -1,0 +1,138 @@
+{
+  "source": "https://www.neobo.se/sv/wp-json/properties/homeq/",
+  "extracted_at": "2026-07-10T06:24:15.848715",
+  "properties": [
+    {
+      "id": "68111-17-1303",
+      "name": "Axvägen 17",
+      "address": "Axvägen 17",
+      "area": "Sundsvall",
+      "rooms": 1,
+      "size_sqm": 34,
+      "rent_sek": 6592,
+      "url": "https://www.homeq.se/lagenhet/258191",
+      "source": "neobo"
+    },
+    {
+      "id": "68108-7-1301",
+      "name": "Nybrogatan 7",
+      "address": "Nybrogatan 7",
+      "area": "Sundsvall",
+      "rooms": 2,
+      "size_sqm": 79,
+      "rent_sek": 13898,
+      "url": "https://www.homeq.se/lagenhet/259820",
+      "source": "neobo"
+    },
+    {
+      "id": "68112-8A-1101",
+      "name": "Skolgatan 8 A",
+      "address": "Skolgatan 8 A",
+      "area": "Sundsvall",
+      "rooms": 2,
+      "size_sqm": 49,
+      "rent_sek": 8391,
+      "url": "https://www.homeq.se/lagenhet/267818",
+      "source": "neobo"
+    },
+    {
+      "id": "68101-41-1104",
+      "name": "Trädgårdsgatan 41",
+      "address": "Trädgårdsgatan 41",
+      "area": "Sundsvall",
+      "rooms": 2,
+      "size_sqm": 65,
+      "rent_sek": 9995,
+      "url": "https://www.homeq.se/lagenhet/265399",
+      "source": "neobo"
+    },
+    {
+      "id": "68111-13-1111",
+      "name": "Axvägen 13",
+      "address": "Axvägen 13",
+      "area": "Sundsvall",
+      "rooms": 2,
+      "size_sqm": 34,
+      "rent_sek": 7093,
+      "url": "https://www.homeq.se/lagenhet/267489",
+      "source": "neobo"
+    },
+    {
+      "id": "68111-17-1109",
+      "name": "Axvägen 17",
+      "address": "Axvägen 17",
+      "area": "Sundsvall",
+      "rooms": 2,
+      "size_sqm": 52,
+      "rent_sek": 8455,
+      "url": "https://www.homeq.se/lagenhet/257450",
+      "source": "neobo"
+    },
+    {
+      "id": "68117-16-1102",
+      "name": "Jakobsdalsgatan 16",
+      "address": "Jakobsdalsgatan 16",
+      "area": "Sundsvall",
+      "rooms": 2,
+      "size_sqm": 50,
+      "rent_sek": 7670,
+      "url": "https://www.homeq.se/lagenhet/262714",
+      "source": "neobo"
+    },
+    {
+      "id": "68104-38B-1301",
+      "name": "Trädgårdsgatan 38 B",
+      "address": "Trädgårdsgatan 38 B",
+      "area": "Sundsvall",
+      "rooms": 3,
+      "size_sqm": 95,
+      "rent_sek": 12038,
+      "url": "https://www.homeq.se/lagenhet/261774",
+      "source": "neobo"
+    },
+    {
+      "id": "68109-5-1203",
+      "name": "Nybrogatan 5",
+      "address": "Nybrogatan 5",
+      "area": "Sundsvall",
+      "rooms": 3,
+      "size_sqm": 80,
+      "rent_sek": 14776,
+      "url": "https://www.homeq.se/lagenhet/255598",
+      "source": "neobo"
+    },
+    {
+      "id": "68108-12-1203",
+      "name": "Storgatan 12",
+      "address": "Storgatan 12",
+      "area": "Sundsvall",
+      "rooms": 3,
+      "size_sqm": 109,
+      "rent_sek": 15761,
+      "url": "https://www.homeq.se/lagenhet/265931",
+      "source": "neobo"
+    },
+    {
+      "id": "68109-2-1102",
+      "name": "Tullgatan 2",
+      "address": "Tullgatan 2",
+      "area": "Sundsvall",
+      "rooms": 4,
+      "size_sqm": 98,
+      "rent_sek": 14619,
+      "url": "https://www.homeq.se/lagenhet/260243",
+      "source": "neobo"
+    },
+    {
+      "id": "56605-7-1003",
+      "name": "Högbergsgatan 7",
+      "address": "Högbergsgatan 7",
+      "area": "Sundsvall",
+      "rooms": 4,
+      "size_sqm": 98,
+      "rent_sek": 9925,
+      "url": "https://www.homeq.se/lagenhet/267814",
+      "source": "neobo"
+    }
+  ]
+}

@@ -96,6 +96,7 @@ def scrape():
                 listing_url = data_url
                 break
         normalized.append({
+            'id': listing_url.split('=')[-1] if '=' in listing_url else address.replace(' ', '-').lower(),
             'name': address,
             'address': f"{address} {postal}, {area}" if postal else f"{address}, {area}" if area else address,
             'postal_code': postal,

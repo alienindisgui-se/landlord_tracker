@@ -29,3 +29,6 @@ cache
 
 # Scratch/temp files
 scratch/
+
+# Generated data
+data/

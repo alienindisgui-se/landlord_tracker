@@ -13,13 +13,13 @@ def scrape():
     
     properties = []
     
-    # Extract all listings without city filter
-    items = soup.select('li.homeq_item.displayed')
+    # Extract only Sundsvall listings
+    items = soup.select('li.homeq_item.filter_Sundsvall.displayed')
     
     for item in items:
         data_id = item.get('data-id', '')
         title = item.get('data-title', '')
-        city = item.get('data-city', '')
+        city = item.get('data-city', 'Sundsvall')
         inflytt = item.get('data-inflytt', '')
         hyra = item.get('data-hyra', '')
         rum = item.get('data-rum', '')
@@ -73,7 +73,7 @@ def scrape():
             'properties': properties
         }, f, indent=2, ensure_ascii=False)
     
-    print(f"Extracted {len(properties)} listings")
+    print(f"Extracted {len(properties)} Sundsvall listings")
 
 if __name__ == '__main__':
     scrape()

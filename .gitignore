@@ -29,4 +29,5 @@ cache
 scratch/
 
 # Generated data
-data/
+data/*_listings.json
+data/scrape_status.json

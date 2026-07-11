@@ -29,10 +29,10 @@ jobs:
       - name: Generate report
         run: python runners/generate_report.py
 
-      - name: Commit report
+      - name: Commit report and listings
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add report/
-          git diff --cached --quiet || git commit -m "Add scraper report ${{ github.run_id }}"
+          git add report/ data/listings.json
+          git diff --cached --quiet || git commit -m "Add scraper report and listings ${{ github.run_id }}"
           git push origin HEAD:main

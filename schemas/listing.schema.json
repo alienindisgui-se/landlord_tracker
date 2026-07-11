@@ -113,6 +113,27 @@
       "type": "object",
       "description": "Additional source-specific metadata",
       "additionalProperties": true
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "deleted"],
+      "description": "Current listing status",
+      "examples": ["active", "deleted"]
+    },
+    "first_seen": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "When the listing was first discovered"
+    },
+    "last_seen": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "When the listing was last seen active"
+    },
+    "deleted_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "When the listing was marked as deleted"
     }
   }
 }

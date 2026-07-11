@@ -17,7 +17,8 @@ def extract_next_data(html):
 def scrape():
     api_url = 'https://www.neobo.se/sv/wp-json/properties/homeq/'
     params = {
-        'p': 1
+        'p': 1,
+        'municipality': 'Sundsvall'
     }
     headers = {
         'User-Agent': 'Mozilla/5.0',

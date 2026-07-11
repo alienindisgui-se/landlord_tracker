@@ -17,18 +17,34 @@ def load_scraper(name):
 def main():
     print("Starting landlord tracker scraper pipeline...")
     
-    # Run all scrapers
-    scrapers = ['subo_scraper', 'sveafastigheter_scraper', 'neobo_scraper']
-    for scraper_name in scrapers:
+    # Load targets from config
+    config_path = runners_dir.parent / "config" / "scrapers.json"
+    targets = []
+    if config_path.exists():
+        import json
+        with open(config_path, "r", encoding="utf-8") as f:
+            config = json.load(f)
+        targets = [t["name"] for t in config.get("targets", [])]
+    
+    if not targets:
+        targets = ['subo', 'sveafastigheter', 'neobo']
+    
+    statuses = {}
+    
+    for target_name in targets:
+        scraper_name = f"{target_name}_scraper"
         try:
             print(f"\nRunning {scraper_name}...")
             scraper = load_scraper(scraper_name)
             if hasattr(scraper, 'scrape'):
                 scraper.scrape()
+                statuses[scraper_name] = 'ok'
                 print(f"[OK] {scraper_name} completed successfully")
             else:
+                statuses[scraper_name] = 'missing_scrape'
                 print(f"[FAIL] {scraper_name} missing scrape() function")
         except Exception as e:
+            statuses[scraper_name] = f'error: {e}'
             print(f"[FAIL] {scraper_name} failed: {e}")
     
     # Merge results
@@ -39,6 +55,16 @@ def main():
         print("[OK] Merge completed")
     else:
         print("[FAIL] merge_listings missing merge_listings() function")
+    
+    # Save statuses for report generation
+    import json
+    from datetime import datetime
+    status_data = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'statuses': statuses
+    }
+    with open('data/scrape_status.json', 'w', encoding='utf-8') as f:
+        json.dump(status_data, f, indent=2, ensure_ascii=False)
     
     print("\nPipeline completed!")
 

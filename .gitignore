@@ -10,8 +10,6 @@ __pycache__
 # Node
 node_modules
 dist
-*.js.map
-*.md
 
 # Android
 app/build

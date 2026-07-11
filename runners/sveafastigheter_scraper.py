@@ -6,27 +6,26 @@ import json
 from datetime import datetime
 
 def scrape():
-    url = 'https://sveafastigheter.se/se-alla-lediga-lagenheter-for-uthyrning?kommun=Sundsvall'
+    url = 'https://sveafastigheter.se/se-alla-lediga-lagenheter-for-uthyrning'
     headers = {'User-Agent': 'Mozilla/5.0'}
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, 'html.parser')
     
     properties = []
     
-    # Extract only Sundsvall listings
-    items = soup.select('li.homeq_item.filter_Sundsvall.displayed')
+    # Extract all listings without city filter
+    items = soup.select('li.homeq_item.displayed')
     
     for item in items:
         data_id = item.get('data-id', '')
         title = item.get('data-title', '')
-        city = item.get('data-city', 'Sundsvall')
+        city = item.get('data-city', '')
         inflytt = item.get('data-inflytt', '')
         hyra = item.get('data-hyra', '')
         rum = item.get('data-rum', '')
         publish = item.get('data-publish', '')
         href = item.select_one('a')['href'] if item.select_one('a') else ''
         
-        # Extract additional details from HTML
         info_container = item.select_one('div.homeq_info_container')
         rooms_text = ''
         size_text = ''
@@ -34,7 +33,6 @@ def scrape():
         inflytt_text = ''
         
         if info_container:
-            # Get text from info_bottom div
             info_bottom = info_container.select_one('div.homeq_info_bottom')
             if info_bottom:
                 inflytt_text = info_bottom.find('span').text.strip() if info_bottom.find('span') else ''
@@ -68,7 +66,6 @@ def scrape():
             'source': 'sveafastigheter'
         })
     
-    # Save structured JSON
     with open('data/sveafastigheter_listings.json', 'w', encoding='utf-8') as f:
         json.dump({
             'source': url,
@@ -76,7 +73,7 @@ def scrape():
             'properties': properties
         }, f, indent=2, ensure_ascii=False)
     
-    print(f"Extracted {len(properties)} Sundsvall listings")
+    print(f"Extracted {len(properties)} listings")
 
 if __name__ == '__main__':
     scrape()

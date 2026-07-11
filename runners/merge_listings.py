@@ -58,6 +58,7 @@ def merge_listings():
     final_listings = list(existing.values())
     
     output = {
+        'version': '1.0.0',
         'updated_at': now,
         'listings': final_listings
     }

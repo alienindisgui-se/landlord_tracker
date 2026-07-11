@@ -53,6 +53,16 @@ python runners/validate_listings.py
 
 Issues and PRs are welcome. For major changes, open an issue first to discuss the approach.
 
+## Versioning
+
+This project follows [Semantic Versioning](https://semver.org/) (`x.y.z`):
+
+- **MAJOR** version when you make incompatible API/schema changes
+- **MINOR** version when you add functionality in a backward-compatible manner
+- **PATCH** version when you make backward-compatible bug fixes
+
+Current version: `1.0.0`
+
 ## License
 
 MIT

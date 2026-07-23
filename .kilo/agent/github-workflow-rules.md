@@ -25,3 +25,11 @@ When the user requests creating a task/issue for the Landlord Tracker project:
 3. No manual project board operations needed - automation handles status
 4. Include relevant labels if applicable (e.g., "enhancement", "bug", "feature")
 5. Reference any related issues or PRs in the body if needed
+
+## AI Agent Rule: Status Transitions
+- **Start Work:** When beginning work on an issue (creating a branch), move the project item from **Todo** to **In Progress** using:
+  `gh project item-edit <ITEM_ID> --project-id PVT_kwHOBKEV484BdAA1 --field-id <STATUS_FIELD_ID> --single-select-option-id <IN_PROGRESS_OPTION_ID>`
+- **Finish Work:** When a PR linked to an issue is merged to `main`, move the project item to **Done** using:
+  `gh project item-edit <ITEM_ID> --project-id PVT_kwHOBKEV484BdAA1 --field-id <STATUS_FIELD_ID> --single-select-option-id <DONE_OPTION_ID>`
+- Use `gh project item-list 2 --owner alienindisgui-se` to retrieve the current `<ITEM_ID>` for the issue.
+- Use `gh project field-list 2 --owner alienindisgui-se` to discover the `<STATUS_FIELD_ID>` and option IDs for **Todo**, **In Progress**, and **Done**.

@@ -1,0 +1,38 @@
+name: Scrape Manual
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scrape-and-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 jsonschema
+
+      - name: Run all scrapers
+        run: python runners/run_scrapers.py
+
+      - name: Validate listings
+        run: python runners/validate_listings.py
+
+      - name: Generate report
+        run: python runners/generate_report.py
+
+      - name: Commit report and listings
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add report/ data/listings.json
+          git diff --cached --quiet || git commit -m "Add scraper report and listings ${{ github.run_id }}"
+          git push origin HEAD:main

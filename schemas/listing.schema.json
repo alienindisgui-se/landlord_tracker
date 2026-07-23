@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Landlord Tracker Listing",
+  "description": "Schema for normalized rental property listings",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "address",
+    "area",
+    "rooms",
+    "size_sqm",
+    "rent_sek",
+    "available_from",
+    "source",
+    "url"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Source-specific unique identifier",
+      "examples": ["68111-17-1303", "88023", "1a-fridhemsgatan-25-1203-ostermalm"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Property name or street address",
+      "examples": ["Axvägen 17", "Fridhemsgatan 25"]
+    },
+    "address": {
+      "type": "string",
+      "description": "Full address including postal code and area",
+      "examples": ["Axvägen 17", "Fridhemsgatan 25 1203, Östermalm"]
+    },
+    "area": {
+      "type": "string",
+      "description": "Neighborhood or district",
+      "examples": ["Sundsvall", "Östermalm", "Bredsand"]
+    },
+    "postal_code": {
+      "type": ["string", "null"],
+      "description": "Swedish postal code",
+      "examples": ["1203", "1101"]
+    },
+    "rooms": {
+      "type": ["string", "number"],
+      "description": "Room count or room type",
+      "examples": ["1", "2", "2.5", "3 ROK"]
+    },
+    "rooms_raw": {
+      "type": ["string", "number", "null"],
+      "description": "Raw room count from source"
+    },
+    "size_sqm": {
+      "type": ["string", "number"],
+      "description": "Size in square meters",
+      "examples": ["34", "64.5", "84"]
+    },
+    "rent_sek": {
+      "type": ["string", "number"],
+      "description": "Monthly rent in SEK",
+      "examples": ["6592", "5229"]
+    },
+    "rent_raw": {
+      "type": ["string", "number", "null"],
+      "description": "Raw rent string from source"
+    },
+    "available_from": {
+      "type": "string",
+      "description": "Available date (ISO-8601) or status",
+      "examples": ["2026-09-01", "Nu", "Enligt överenskommelse"]
+    },
+    "available_raw": {
+      "type": ["string", "null"],
+      "description": "Raw availability text from source"
+    },
+    "published_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Publication timestamp"
+    },
+    "contact": {
+      "type": ["string", "null"],
+      "description": "Contact information"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Direct link to listing"
+    },
+    "source": {
+      "type": "string",
+      "description": "Scraper source identifier",
+      "examples": ["subo", "sveafastigheter", "neobo"]
+    },
+    "thumbnail": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "Thumbnail image URL"
+    },
+    "images": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "Array of image URLs"
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Property description"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional source-specific metadata",
+      "additionalProperties": true
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "deleted"],
+      "description": "Current listing status",
+      "examples": ["active", "deleted"]
+    },
+    "first_seen": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "When the listing was first discovered"
+    },
+    "last_seen": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "When the listing was last seen active"
+    },
+    "deleted_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "When the listing was marked as deleted"
+    }
+  }
+}

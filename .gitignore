@@ -1,0 +1,33 @@
+# Python
+*.pyc
+*.pyd
+__pycache__
+*.pyo
+*.pyw
+*.sqlite
+*.shelve
+
+# Node
+node_modules
+dist
+
+# Android
+app/build
+app/intermediate
+app/gen
+app/obj
+build.gradle.kts
+package.json
+.env
+
+# Logs and caches
+logs
+cache
+.dSYM
+
+# Scratch/temp files
+scratch/
+
+# Generated data
+data/*_listings.json
+data/scrape_status.json

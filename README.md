@@ -17,6 +17,8 @@ This project continuously monitors rental listings from multiple Swedish propert
 - Automated merge pipeline across sources
 - Markdown report generation with scraper health status
 - GitHub Actions workflow for scheduled execution
+- Public JSON endpoint via GitHub Pages
+- Android app skeleton for mobile access
 
 ## Quick start
 
@@ -40,6 +42,8 @@ python runners/validate_listings.py
 - requests + BeautifulSoup for scraping
 - JSON Schema for validation
 - GitHub Actions for scheduling
+- GitHub Pages for public data hosting
+- Kotlin/Jetpack Compose for Android client
 
 ## How it works
 
@@ -48,10 +52,19 @@ python runners/validate_listings.py
 3. `merge_listings.py` combines all source files into `data/listings.json`
 4. `generate_report.py` produces a status report in `report/`
 5. Validation ensures every listing matches `schemas/listing.schema.json`
+6. GitHub Actions pushes `data/listings.json` to the `data` branch automatically
+7. GitHub Pages serves the `data` branch as a public JSON endpoint
 
-## Contributing
+## Project board
 
-Issues and PRs are welcome. For major changes, open an issue first to discuss the approach.
+Track all tasks and progress on [GitHub Project 2](https://github.com/users/alienindisgui-se/projects/2/views/1).
+
+## Roadmap
+
+- **Phase 2**: Orphan data branch + GitHub Pages endpoint
+- **Phase 3**: Gemini Flash enrichment for neighborhood data
+- **Phase 4**: Android app skeleton (Kotlin/Jetpack Compose)
+- **Phase 5**: Release workflow for automated APK builds
 
 ## Versioning
 

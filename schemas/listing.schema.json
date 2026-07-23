@@ -134,6 +134,10 @@
       "type": ["string", "null"],
       "format": "date-time",
       "description": "When the listing was marked as deleted"
+    },
+    "neighborhood_summary": {
+      "type": ["string", "null"],
+      "description": "AI-generated neighborhood summary via Gemini Flash"
     }
   }
 }

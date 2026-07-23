@@ -25,6 +25,7 @@ When the user requests creating a task/issue for the Landlord Tracker project:
 3. No manual project board operations needed - automation handles status
 4. Include relevant labels if applicable (e.g., "enhancement", "bug", "feature")
 5. Reference any related issues or PRs in the body if needed
+6. **Phase Labeling:** When breaking down a larger issue into subtasks, prefix each subtask title with the phase number and name, e.g., `Phase 2: Create orphan data branch`. This makes it clear which phase the task belongs to in the project board.
 
 ## AI Agent Rule: Status Transitions
 - **Start Work:** When beginning work on an issue (creating a branch), move the project item from **Todo** to **In Progress** using:

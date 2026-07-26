@@ -5,8 +5,10 @@ import os
 import sys
 from pathlib import Path
 
-# Add runners directory to path
-runners_dir = Path(__file__).parent
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).parent.parent / '.env')
+
 sys.path.insert(0, str(runners_dir))
 
 def load_scraper(name):

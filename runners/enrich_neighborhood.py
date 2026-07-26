@@ -5,6 +5,9 @@ import os
 import urllib.request
 import urllib.error
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).parent.parent / '.env')
 
 def enrich_neighborhood():
     data_dir = Path('data')

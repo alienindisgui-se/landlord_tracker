@@ -15,6 +15,8 @@ job:
     - name: Install dependencies
       run: pip install requests beautifulsoup4
     - name: Run scraper pipeline
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       run: python runners/run_scrapers.py
       
     - name: Commit and push to data branch

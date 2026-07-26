@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 
 import importlib.util
+import os
 import sys
 from pathlib import Path
 
-# Add runners directory to path
-runners_dir = Path(__file__).parent
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).parent.parent / '.env')
+
 sys.path.insert(0, str(runners_dir))
 
 def load_scraper(name):
@@ -55,6 +58,21 @@ def main():
         print("[OK] Merge completed")
     else:
         print("[FAIL] merge_listings missing merge_listings() function")
+    
+    # Enrich with neighborhood summaries (optional, requires GEMINI_API_KEY)
+    if os.environ.get('GEMINI_API_KEY'):
+        print("\nEnriching listings with neighborhood summaries...")
+        try:
+            enrich = load_scraper('enrich_neighborhood')
+            if hasattr(enrich, 'enrich_neighborhood'):
+                enrich.enrich_neighborhood()
+                print("[OK] Enrichment completed")
+            else:
+                print("[SKIP] enrich_neighborhood missing enrich_neighborhood() function")
+        except Exception as e:
+            print(f"[FAIL] Enrichment failed: {e}")
+    else:
+        print("\n[Skipping enrichment] GEMINI_API_KEY not set")
     
     # Save statuses for report generation
     import json
